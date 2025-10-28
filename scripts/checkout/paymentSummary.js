@@ -2,6 +2,10 @@ import { cart } from "../../data/cart.js";
 import { getProduct } from "../../data/products.js";
 import { getDeliveryOption } from "../../data/deliveryOptions.js";
 import { formatCurrency } from "../utils/money.js";
+import { renderOrderSummary } from "./orderSummary.js";
+
+
+
 export function renderPaymentSumary(){
    let productPriceCents=0;
    let shippingPriceCents=0
@@ -16,6 +20,9 @@ export function renderPaymentSumary(){
 
     
    });
+   
+   
+
    const totalBeforeTaxCents=productPriceCents+shippingPriceCents;
    const taxCents=totalBeforeTaxCents*0.1;
    const totalCents=totalBeforeTaxCents+taxCents;
@@ -26,7 +33,7 @@ export function renderPaymentSumary(){
       </div>
 
       <div class="payment-summary-row">
-      <div>Items (3):</div>
+      <div class="js-cart-quantity-payment"></div>
       <div class="payment-summary-money">
       $${formatCurrency(productPriceCents)}
       </div>
@@ -66,6 +73,17 @@ export function renderPaymentSumary(){
         `;
 
         document.querySelector('.js-payment-summary').innerHTML=paymentSummaryHTML;
-  
+
+        function updatePaymentQuantity(){
+         let itemQuantity=0;
+         cart.forEach((cartItem)=>{
+         itemQuantity+=cartItem.quantity;
+        });
+      renderOrderSummary();
+      document.querySelector('.js-cart-quantity-payment').innerHTML=`Item${itemQuantity>1?'s':''}(${itemQuantity}):`;
+       
+  }
+
+   updatePaymentQuantity();
 
 }
