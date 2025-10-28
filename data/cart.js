@@ -17,6 +17,9 @@ if(!cart){
 function saveToStorage(){
   localStorage.setItem('cart',JSON.stringify(cart));
 }
+export function getCartQuantity() {
+  return cart.reduce((total, item) => total + item.quantity, 0);
+}
 
 export function addToCart(productId){
 
