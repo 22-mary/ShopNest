@@ -1,4 +1,9 @@
-export let cart=JSON.parse(localStorage.getItem('cart'));
+export let cart;
+
+loadFromStorage();
+
+ export function loadFromStorage(){
+  cart=JSON.parse(localStorage.getItem('cart'));
 
 if(!cart){
   cart= [{
@@ -11,6 +16,8 @@ if(!cart){
     deliveryOptionId:'2'
   }];
 }
+
+ }
 
 
 
@@ -34,7 +41,7 @@ export function addToCart(productId){
     });
     if(matchingItem){
         matchingItem.quantity+=1;
-    } else{
+     } else{
       cart.push({
         productId:productId,
         quantity:1,
