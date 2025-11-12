@@ -1,9 +1,16 @@
- function Cart(localStorageKey){
-  const cart={
-   cartItems:undefined,
+class Cart{
+  cartItems;
 
-   loadFromStorage(){
-    this.cartItems=JSON.parse(localStorage.getItem(localStorageKey));
+  localStorageKey;
+
+  constructor(localStorageKey){
+    this.localStorageKey=localStorageKey;
+    this.loadFromStorage();
+    
+  }
+
+  loadFromStorage(){
+    this.cartItems=JSON.parse(localStorage.getItem(this.localStorageKey));
 
     if(!this.cartItems){
       this.cartItems= [{
@@ -17,11 +24,11 @@
       }];
     }
 
-    },
+    }
 
-  saveToStorage(){
-    localStorage.setItem(localStorageKey,JSON.stringify(this.cartItems));
-  },
+    saveToStorage(){
+    localStorage.setItem(this.localStorageKey,JSON.stringify(this.cartItems));
+  }
 
   addToCart(productId){
 
@@ -45,21 +52,7 @@
     }
     this.saveToStorage();
 
-},
-removeFromCart(productId){
-  const newCart=[];
-  this.cartItems.forEach((cartItem) =>{
-    if(cartItem.productId!==productId){
-    newCart.push(cartItem);
-  }
-
-  });
-
-  this.cartItems=newCart;
-
-  this.saveToStorage();
-  
-},
+}
 
 updateDeliveryOption(productId,deliveryOptionId){
   let matchingItem;
@@ -76,10 +69,26 @@ updateDeliveryOption(productId,deliveryOptionId){
   }
   matchingItem.deliveryOptionId=deliveryOptionId;
   this.saveToStorage();
-},
+}
+
+removeFromCart(productId){
+  const newCart=[];
+  this.cartItems.forEach((cartItem) =>{
+    if(cartItem.productId!==productId){
+    newCart.push(cartItem);
+  }
+
+  });
+
+  this.cartItems=newCart;
+
+  this.saveToStorage();
+  
+}
+
 getCartQuantity() {
   return this.cartItems.reduce((total, item) => total + item.quantity, 0);
-},
+}
 
 updateinputQuantity(productId,inputQuantity){
   this.cartItems.forEach((cartItem)=>{
@@ -92,28 +101,13 @@ updateinputQuantity(productId,inputQuantity){
   this.saveToStorage();
 
 }
+}
 
-
-  };
-  return cart;
-
-   
- }
- const cart=Cart('cart-oop');
- const businessCart=Cart('cart-business');
+ const cart= new Cart('cart-oop');
+ const businessCart= new Cart('cart-business');
 
  
-
-cart.loadFromStorage();
-
-businessCart.loadFromStorage();
 console.log(cart);
 console.log(businessCart);
 
-
-
-
-
-
-
-
+console.log(businessCart instanceof Cart);
