@@ -7,6 +7,31 @@ import { renderCheckoutHeader } from "./checkout/checkoutHeader.js";
 import '../data/car.js';
 //import '../data/backend-practice.js'
 import { loadCart } from "../data/cart.js";
+
+async function loadPage() {
+  try{
+    // throw 'error1';
+    await loadProductsFetch();
+  const value=await new Promise((resolve, reject)=>{
+    throw 'error2';
+      loadCart(()=>{
+       // reject('error3');
+        resolve('value3');
+      });
+    })
+
+  } catch(error){
+    console.log('unexpected error. please try again later.');
+  }
+  
+  renderPaymentSumary();
+  renderOrderSummary();
+  renderCheckoutHeader();
+  
+}
+loadPage();
+
+/*
 Promise.all([
   loadProductsFetch(), 
   new Promise((resolve)=>{
