@@ -1,9 +1,19 @@
-import {cart, addToCart} from '../data/cart.js';
+import {cart, addToCart,getCartQuantity} from '../data/cart.js';
 import { products,loadProducts } from '../data/products.js';
+import { renderAmazonCartHead } from './amazonHeader.js';
 
 import { formatCurrency }  from './utils/money.js';
 loadProducts(renderProductsGrid);
+renderAmazonCartHead();
 
+/*const url = new URL(window.location.href);
+const isEmpty = url.searchParams.get("empty");
+
+if (isEmpty) {
+  document.querySelector('.js-cart-empty-message').innerText =
+    'Your shopping cart is empty.';
+}
+*/
 function renderProductsGrid(){  
 
   let productsHTML='';
@@ -68,13 +78,13 @@ function renderProductsGrid(){
   document.querySelector('.js-product-grid').innerHTML=productsHTML;
 
   window.addEventListener('load',()=>{
-    updateCartQuantity();
+    renderAmazonCartHead();
 
   })
 
 
 
-  function updateCartQuantity(){
+ /* function updateCartQuantity(){
     let cartQuantity=0;
 
           cart.forEach((cartItem)=>{
@@ -85,20 +95,33 @@ function renderProductsGrid(){
           document.querySelector('.js-cart-quantity').innerHTML=cartQuantity;
 
   }
+          */
 
   document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
     button.addEventListener('click',()=>{
       const productId=(button.dataset.productId);
 
       addToCart(productId);
-      updateCartQuantity();
-
-      
-          
-
-      });
-
-      
-      
+      renderAmazonCartHead(); });
     });
+
+  document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
+    button.addEventListener('click',async ()=>{
+      const productId=button.dataset.productId;
+
+      try {
+        await addToCart(productId);
+        renderAmazonCartHead();
+
+        alert('Added to cart');
+        
+      } catch (error) {
+        console.error(error);
+        alert('Failed to add to cart');
+        
+      }
+    })
+  })
+
 }
+

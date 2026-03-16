@@ -84,7 +84,7 @@ object3.method();
 */
 export let products=[];
 
-export function loadProductsFetch(){
+/*export function loadProductsFetch(){
   const promise=fetch('https://supersimplebackend.dev/products').then((response)=>{
     return response.json();
   }).then((productsData)=>{
@@ -100,7 +100,32 @@ export function loadProductsFetch(){
     console.log('unexpected error. Please try again later.')
   });
   return promise;
+}*/
+export async function loadProductsFetch(){
+
+  try {
+    const response=await fetch('http://localhost:8000/api/products');
+    if(!response.ok){
+      throw new Error('failed to fetch products');
+    }
+    const productsData=await response.json();
+
+    products=productsData.map((productDetails)=>{
+      if(productDetails.type==='clothing'){
+        return new Clothing(productDetails)
+      }
+      return new Product(productDetails)
+    });
+    console.log('product loaded');
+  
+    
+  } catch (error) {
+    console.log('unexpected error please try again latter');
+    
+  }
 }
+
+  
  
 /*loadProductsFetch().then(()=>{
   console.log('next step');
