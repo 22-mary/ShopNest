@@ -1,0 +1,97 @@
+
+@media (max-width: 400px) {
+  .header, .login-form {
+    width: 90%; /* adjust width on small screens */
+  }
+}
+body{
+  font-family: Arial, sans-serif;
+  background: #f3f3f3;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    background-color: rgb(255, 253, 253);
+    
+}
+.amazon-mobile-logo{
+    
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+    max-height: 80px;
+    background-color: none;
+
+
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(235, 238, 238);
+    width: 300px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    
+
+
+}
+.login-form h2{
+    text-align: center;
+    margin-top: 20px;
+}
+.login-form-group{
+    display: flex;
+    flex-direction: column;
+}
+.login-form-group label{
+    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+input{
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid rgb(212, 208, 208);
+    border-radius: 5px;
+    margin-bottom: 10px;    
+}
+small{
+  font-size:12px;
+  color:#555;
+  margin-top:3px;
+}
+.submit-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.create-account-button{
+    background-color: rgb(255, 181, 44);
+    border: none;
+    border-radius: 16px;
+    padding: 15px 25px;
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.create-account-button:hover{
+  background:#f7ca00;
+}
+.login-link{
+    display: flex;
+    flex-direction: row;
+}
+
+.login-link a{
+    text-decoration: none;
+    color: rgb(125, 125, 245);
+}
+
+.login-link a:hover{
+    text-decoration: underline;
+}

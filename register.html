@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register</title>
+        <link rel="stylesheet" href="styles/pages/register.css">
+    </head>
+    <body>
+        
+        
+
+        <div class="login-container">
+            <div class="header">
+                <a>
+                <img class="amazon-mobile-logo"
+                src="images/amazon-logo-black-transparent.png">
+                </a>
+            </div>
+            <form class="login-form js-register-form">
+                <h2>Create account</h2>
+                <div class="login-form-group">
+                    <label>Your name</label>
+                    <input type="text" class="name js-name" placeholder="First and last name" required>
+
+                </div>
+                <div class="login-form-group">
+                    <label>Email</label>
+                    <input type="email" class="email js-email" placeholder="Enter email" required>
+
+                </div>
+                
+                
+                <div class="login-form-group">
+                    <label>Password</label>
+                    <input type="password" class="password js-password" placeholder="Atleast 6 characters"required>
+                    <small>Password must be atleast 6 characters</small>
+                </div>
+
+                <div class="login-form-group">
+                    <label>Re-enter Password</label>
+                    <input type="password" class="password" placeholder="Enter password"required>
+
+                </div>
+                <div class="submit-button">
+                    <button type="submit" class="create-account-button">Create your Amazon account</button>
+                </div>
+                
+            </form>
+            <p class="login-link">Already have an account?<a href="login.html">Sign In</a>
+            </p>
+
+
+        </div>
+        <script type="module" src="scripts/register.js"></script>
+    </body>
+</html>
