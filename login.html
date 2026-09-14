@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Register</title>
+        <title>Login</title>
         <link rel="stylesheet" href="styles/pages/login.css">
     </head>
     <body>
@@ -10,9 +10,10 @@
 
         <div class="login-container">
             <div class="header">
-                <a>
-                <img class="amazon-mobile-logo"
-                src="images/amazon-logo-black-transparent.png">
+                <a href="index.html">
+                <img class="shopnest-mobile-logo"
+                src="images/shopnest-logo-black-transparent.png"
+                alt="ShopNest">
                 </a>
             </div>
             <form class="login-form js-login-form">
@@ -27,7 +28,7 @@
                 
                 <div class="login-form-group">
                     <label>Password</label>
-                    <input type="password" class="password js-password" placeholder="Atleast 6 characters"required>
+                    <input type="password" class="password js-password" placeholder="At least 6 characters"required>
                     <small>Password must be atleast 6 characters</small>
                 </div>
 
@@ -37,11 +38,12 @@
                 </div>
                 
             </form>
-            <p class="login-link">Already have an account?<a href="login.html">Sign In</a>
+            <div class="js-message message-box"></div>
+            <p class="login-link">Dont have an account?<a href="register.html">Create an account</a>
             </p>
 
 
         </div>
-        <script type="module" src="scripts/login.js"></script>
+        <script type="module" src="scripts/login/login.js"></script>
     </body>
 </html>

@@ -44,7 +44,7 @@
 }
 
 .current-status {
-  color: rgb(6, 125, 98);
+  color: #14B8A6;
 }
 
 @media (max-width: 575px) {
@@ -75,7 +75,9 @@
 
 .progress-bar {
   height: 100%;
-  background-color: green;
+  background-color: #14B8A6;
   border-radius: 50px;
-  width: 50%;
+}
+.js-progress-bar{
+  transition: width 0.8s ease;
 }

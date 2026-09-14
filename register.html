@@ -3,6 +3,7 @@
     <head>
         <title>Register</title>
         <link rel="stylesheet" href="styles/pages/register.css">
+        <link rel="stylesheet" href="styles/shared/general.css">
     </head>
     <body>
         
@@ -10,9 +11,9 @@
 
         <div class="login-container">
             <div class="header">
-                <a>
-                <img class="amazon-mobile-logo"
-                src="images/amazon-logo-black-transparent.png">
+                <a href="index.html">
+                <img class="shopnest-mobile-logo"
+                src="images/shopnest-logo-black-transparent.png">
                 </a>
             </div>
             <form class="login-form js-register-form">
@@ -20,11 +21,13 @@
                 <div class="login-form-group">
                     <label>Your name</label>
                     <input type="text" class="name js-name" placeholder="First and last name" required>
+                    <div class="error-name js-error-name"></div>
 
                 </div>
                 <div class="login-form-group">
                     <label>Email</label>
                     <input type="email" class="email js-email" placeholder="Enter email" required>
+                    <div class="error-email js-error-email"></div>
 
                 </div>
                 
@@ -32,24 +35,26 @@
                 <div class="login-form-group">
                     <label>Password</label>
                     <input type="password" class="password js-password" placeholder="Atleast 6 characters"required>
-                    <small>Password must be atleast 6 characters</small>
+                    <small>Password must be at least 6 characters</small>
+                    <div class="error-password js-error-password"></div>
                 </div>
 
                 <div class="login-form-group">
                     <label>Re-enter Password</label>
-                    <input type="password" class="password" placeholder="Enter password"required>
-
+                    <input type="password" class="password js-confirm-password" placeholder="Enter password"required>
+                    <div class="error-password js-error-confirm-password"></div>
                 </div>
                 <div class="submit-button">
-                    <button type="submit" class="create-account-button">Create your Amazon account</button>
+                    <button type="submit" class="button-primary create-account-button">Create your Shopnest account</button>
                 </div>
                 
             </form>
-            <p class="login-link">Already have an account?<a href="login.html">Sign In</a>
+            <div class="js-message message-box"></div>
+            <p class="login-link">Already have an account?<a href="login.html">Login</a>
             </p>
 
 
         </div>
-        <script type="module" src="scripts/register.js"></script>
+        <script type="module" src="scripts/register/register.js"></script>
     </body>
 </html>

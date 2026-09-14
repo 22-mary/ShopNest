@@ -1,0 +1,109 @@
+.product-page {
+  display: flex;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.product-image-section {
+  flex: 1;
+}
+
+.product-image-large {
+  width: 100%;
+  max-width: 500px;
+  object-fit: contain;
+}
+
+.product-info-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.product-brand,
+.product-category {
+  font-size: 16px;
+  color: #565959;
+  margin-bottom: 10px;
+}
+
+.product-rating {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.product-price {
+  font-size: 32px;
+  font-weight: bold;
+  color: #b12704;
+  margin-bottom: 20px;
+}
+
+.product-description {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.product-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.product-actions select {
+  width: 80px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #d5d9d9;
+  cursor: pointer;
+}
+
+
+.add-to-cart-button {
+  padding: 10px 25px;
+  font-size: 15px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #007185;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+.added-to-cart {
+  color: rgb(6, 125, 98);
+  font-size: 16px;
+
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  transition: opacity 0.3s ease-in-out;
+
+  /* At first, the "Added to cart" message will
+     be invisible. Use JavaScript to change the
+     opacity and make it visible. */
+  opacity: 0;
+}
+.added-to-cart.visible{
+  opacity: 1;
+}
+
+.added-to-cart img {
+  height: 20px;
+  margin-right: 5px;
+}

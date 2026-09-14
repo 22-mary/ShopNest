@@ -26,21 +26,21 @@ input, select, button {
 
 .button-primary {
   color: rgb(33, 33, 33);
-  background-color: rgb(255, 216, 20);
-  border: 1px solid rgb(252, 210, 0);
+  background-color: #FF9900;
+  border: 1px solid #E68A00;
   border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
 }
 
 .button-primary:hover {
-  background-color: rgb(247, 202, 0);
-  border: 1px solid rgb(242, 194, 0);
+  background-color: #E68A00;
+  border: 1px solid #CC7A00;
 }
 
 .button-primary:active {
-  background: rgb(255, 216, 20);
-  border-color: rgb(252, 210, 0);
+  background: #FF9900;
+  border-color: #E68A00;
   box-shadow: none;
 }
 
@@ -75,12 +75,12 @@ input, select, button {
 }
 
 .link-primary {
-  color: rgb(1, 124, 182);
+  color: #14B8A6;
   cursor: pointer;
 }
 
 .link-primary:hover {
-  color: rgb(196, 80, 0);
+  color: #0F9488;
 }
 
 /* Styles for dropdown selectors. */
@@ -98,4 +98,28 @@ select {
 select:focus,
 input:focus {
   outline: 2px solid rgb(255, 153, 0);
+}
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #ff9900;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+.js-loading-spinner {
+  display: none;
+  text-align: center;
+  padding: 20px;
 }

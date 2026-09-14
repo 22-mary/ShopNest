@@ -22,9 +22,9 @@
     <div class="checkout-header">
       <div class="header-content">
         <div class="checkout-header-left-section">
-          <a href="amazon.html">
-            <img class="amazon-logo" src="images/amazon-logo.png">
-            <img class="amazon-mobile-logo" src="images/amazon-mobile-logo.png">
+          <a href="index.html">
+            <img class="shopnest-logo" src="images/shopnestlogo_on_white_bacground.jpg">
+            <img class="shopnest-mobile-logo" src="images/ShopNestMobileLogo.png">
           </a>
         </div>
 
@@ -33,13 +33,31 @@
         </div>
 
         <div class="checkout-header-right-section">
-          <img src="images/icons/checkout-lock-icon.png">
+
+          
+          <div class="js-auth-section">
+
+            <a class="cart-link header-link" href="checkout.html">
+              <img class="cart-icon" src="images/icons/black-cart-icon.png">
+              <div class="cart-quantity js-cart-quantity">0</div>
+              <div class="cart-text">Cart</div>
+            </a>
+         </div>
+
+          
         </div>
       </div>
     </div>
+    <p class="js-cart-empty-message"></p>
 
     <div class="main">
+
       <div class="page-title">Review your order</div>
+
+      <div class="js-loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading checkout...</p>
+      </div>
 
       <div class="checkout-grid">
         <div class="order-summary js-order-summary">
@@ -50,7 +68,6 @@
         </div>
       </div>
     </div>
-    <script type="module" src="scripts/checkout.js"></script>
-    
+    <script type="module" src="scripts/checkout/checkout.js"></script>
   </body>
 </html>

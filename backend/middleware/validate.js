@@ -1,0 +1,12 @@
+export const validate=(schema)=>(req,res,next)=>{
+    const {error}=schema.validate(req.body);
+    
+    if(error){
+        console.log(error.details);
+        return res.status(400).json({
+            message:error.details[0].message
+        })
+    }
+    next();
+
+}

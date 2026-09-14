@@ -9,13 +9,16 @@ body{
   background: #f3f3f3;
 }
 .header{
-    display: flex;
-    justify-content: center;
-    width: 300px;
-    background-color: rgb(255, 253, 253);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 340px;
+  height: 80px;
+  background-color: transparent;
+  margin-bottom: 10px;
     
 }
-.amazon-mobile-logo{
+.shopnest-mobile-logo{
     
     height: auto;
     width: 100%;
@@ -69,18 +72,11 @@ small{
     justify-content: center;
 }
 .create-account-button{
-    background-color: rgb(255, 181, 44);
-    border: none;
-    border-radius: 16px;
+    
     padding: 15px 25px;
     font-size: 14px;
-    color: black;
     font-weight: bold;
-    cursor: pointer;
-}
-
-.create-account-button:hover{
-  background:#f7ca00;
+    
 }
 .login-link{
     display: flex;
@@ -94,4 +90,16 @@ small{
 
 .login-link a:hover{
     text-decoration: underline;
+}
+
+.message-box{
+    color: red;
+    margin-bottom:10px;
+}
+.error-name, 
+.error-email,
+.error-password{
+    color: red;
+    font-size: 12px;
+
 }
