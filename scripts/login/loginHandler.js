@@ -24,9 +24,16 @@ export function attachLoginHandler() {
 
             messageDiv.style.color = 'green';
             messageDiv.textContent = 'Logged in successfully!';
+            const params = new URLSearchParams(window.location.search);
+            const redirect = params.get('redirect');
 
             setTimeout(() => {
-                window.location.href = 'index.html';
+
+                if (redirect) {
+                    window.location.href = redirect;
+                } else {
+                    window.location.href = 'index.html';
+                }
             }, 2000);
 
             

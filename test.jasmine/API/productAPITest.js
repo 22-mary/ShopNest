@@ -1,4 +1,4 @@
-import { getProduct, loadProductsFetch ,Product} from "../../data/productsAPI.js";
+import { getProduct, loadProductsFetch ,Product} from "../../API/productsAPI.js";
 
 describe('test suite:loadProductFetch',()=>{
     it('loads product successfully',async()=>{
@@ -50,19 +50,13 @@ describe('test suite:loadProductFetch',()=>{
        expect(result[1] instanceof Product).toBeTrue();
 
     });
-    it('returns empty array when loading produts fail',async()=>{
+    it('throws an error when loading products fails',async()=>{
         spyOn(window,'fetch').and.resolveTo({
             ok:false,
-            status:500,
-            json:async()=>({
-                message:'Internal server error'
-
-            })
         })
-        const result=await loadProductsFetch();
-        expect(fetch).toHaveBeenCalledTimes(1);
-        expect(result).toEqual([]);
-    })
+        await expectAsync(loadProductsFetch())
+            .toBeRejectedWithError('Failed to fetch products');
+        })
     it('searches for a product',async()=>{
         spyOn(window,'fetch').and.resolveTo({
             ok:true,

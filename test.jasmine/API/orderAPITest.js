@@ -1,4 +1,4 @@
-import { placeOrderAPI } from "../../data/ordersAPI.js";
+import { placeOrderAPI } from "../../API/ordersAPI.js";
 
 describe('test suite:placeOrderAPI',()=>{
     it('creates order successfully',async()=>{

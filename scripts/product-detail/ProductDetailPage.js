@@ -1,6 +1,6 @@
 import { getProduct } from "../../API/productsAPI.js";
 import { renderProductUI } from "./productDetailUI.js";
-import { addToCartHandler } from "./productHandler.js";
+import { addToCartHandler } from "./productDetailHandler.js";
 
 export async function initProducDetailtPage(){
     const url=new URL(window.location.href);
@@ -10,7 +10,7 @@ export async function initProducDetailtPage(){
     if (!product) {
         document.querySelector(".js-product-details-container").innerHTML = `
             <h2>Product not found.</h2>
-            <a href="amazon.html">Return to products</a>
+            <a href="index.html">Return to products</a>
         `;
         return;
     }

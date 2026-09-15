@@ -17,6 +17,6 @@ export async function initializeAdminPage() {
 
     initializeAdminHandlers();
 
-    await initAdminPage();
+    await initAdminPageTable();
 
 }

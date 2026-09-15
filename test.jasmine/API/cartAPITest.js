@@ -1,4 +1,4 @@
-import { addToCartAPI,getCartAPI,removeFromCartAPI, updateCartQuantityAPI,updateDeliveryOptionAPI } from "../../data/cartAPI.js";
+import { addToCartAPI,getCartAPI,removeFromCartAPI, updateCartQuantityAPI,updateDeliveryOptionAPI } from "../../API/cartAPI.js";
 
 //create testsuite
 describe('test-suite: addToCartAPI',()=>{
@@ -30,30 +30,35 @@ describe('test-suite: addToCartAPI',()=>{
         expect(result).toEqual({message: 'Added to cart'});
 
     });
-    it('return null when add to cart fail',async()=>{
+    it('throws an error when adding to cart fails',async()=>{
         spyOn(window,'fetch').and.resolveTo({
             ok:false,
-            status:400,
             json:async()=>({
                 message:'Quantity exceeds available stock'
             })
         })
-        const result=await addToCartAPI('02694574-a4da-4f97-9eca-7c610a3284ec',100,'1');
-        expect(fetch).toHaveBeenCalledTimes(1);
-        expect(result).toBeNull();
-    })
+        await expectAsync(addToCartAPI('product1', 5))
+            .toBeRejectedWithError(
+            'Quantity exceeds available stock'
+        );
+        })
     it('return null when product doesnt exist',async()=>{
         spyOn(window, 'fetch').and.resolveTo({
             ok:false,
             status:404,
-            json:async()=>{
+            json:async()=>({
                 message:'Product not found'
-            }
+            })
         });
-        const result=await addToCartAPI('02694574-a4da-4f97--7c610a3284ec',1,'1');
+        await expectAsync(addToCartAPI(
+            '02694574-a4da-4f97-7c610a3284ec',
+            1,
+            '1'
+        ))
+        .toBeRejectedWithError('Product not found');
+
         expect(fetch).toHaveBeenCalledTimes(1);
-        expect(result).toBeNull();
-    })
+        })
 
 })
 

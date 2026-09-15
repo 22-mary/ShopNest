@@ -3,6 +3,7 @@ import { renderProductForm} from "./adminUI.js";
 import { validateProduct } from "./validate.js";
 import { showMessage } from "./message.js";
 import { getProductFromForm,closeProductForm, clearEditingProduct,getEditingProductId,setEditingProductId } from "./productForm.js";
+import { initAdminPageTable } from "./adminPage.js";
 
 export function initializeAdminHandlers(){
     const container=document.querySelector('.js-add-product-container');
@@ -56,13 +57,29 @@ export function deleteProductHandler(){
 
         try {
             const result=await deleteProduct(productId);
-            if (!result) {
-                throw new Error('Delete failed');
-            }
-            await initAdminPage();
+
+            const pageMessage = document.querySelector(".js-add-product-message");
+
+            await initAdminPageTable();
+            showMessage(
+                pageMessage,
+                "success",
+                result.message,
+                3000
+            );
+
+            pageMessage.scrollIntoView({
+                behavior:'smooth',
+                block:'nearest'
+            });
 
 
         } catch (error) {
+            showMessage(pageMessage,"error",result.message,3000);
+            pageMessage.scrollIntoView({
+                behavior:'smooth',
+                block:'nearest'
+            });
            console.error('failed to remove product',error); 
         }
 
@@ -100,20 +117,16 @@ async function handleProductSubmit(event){
             clearEditingProduct();
 
         }else{
-        
-
          response=await createProduct(product);
         }
-
-        await initAdminPage();
-
-        closeProductForm();
-
         const pageMessage = document.querySelector(".js-add-product-message");
-    
+        await initAdminPageTable();
+        closeProductForm();
         showMessage(pageMessage,"success",response.message,3000);
-           
-
+        pageMessage.scrollIntoView({
+            behavior:'smooth',
+            block:'nearest'
+        });
     } catch (error) {
 
         const formMessage = form.querySelector(".js-form-message");

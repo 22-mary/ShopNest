@@ -83,8 +83,22 @@ body{
     
 }
 
-.js-add-product-container{
-    margin: 20px 0;
+.js-add-product-container {
+    position: fixed;
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, 0.6);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+    padding: 20px;
+}
+
+.js-add-product-container.show {
+    display: flex;
 }
 .hide-button{
     display: none;
@@ -97,7 +111,9 @@ body{
     padding: 25px;
     display: flex;
     flex-direction: column;
-     width: 100%;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 .js-add-product-form h2 {
     text-align: center;

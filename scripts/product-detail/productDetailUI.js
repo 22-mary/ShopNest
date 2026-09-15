@@ -56,6 +56,8 @@ export function renderProductUI(product){
                                     data-product-id="${product.id}">
                                     Add to Cart
                                 </button>
+                                <div class="added-to-cart-message add-to-cart-error js-add-to-cart-error-${product.id}">
+                                </div>
 
                             </div>
 

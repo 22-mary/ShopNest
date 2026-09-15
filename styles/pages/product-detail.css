@@ -42,8 +42,8 @@
 }
 
 .product-price {
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: 500;
   color: #b12704;
   margin-bottom: 20px;
 }
@@ -106,4 +106,22 @@
 .added-to-cart img {
   height: 20px;
   margin-right: 5px;
+}
+.added-to-cart-message {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  transition: opacity 0.3s ease-in-out;
+
+  /* At first, the "Added to cart" message will
+     be invisible. Use JavaScript to change the
+     opacity and make it visible. */
+  opacity: 0;
+}
+.added-to-cart-message.visible{
+  opacity: 1;
+}
+.add-to-cart-error {
+  color: #B12704;
 }

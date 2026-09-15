@@ -104,9 +104,9 @@ describe('test suite: validate middleware-registration',()=>{
     it('returns 400 when name is short', () => {
         req.body.name = 'm';
 
-        const validateLogin = validate(loginSchema);
+        const validateRegister = validate(registerSchema);
 
-        validateLogin(req, res, next);
+        validateRegister(req, res, next);
 
         expect(res.status).toHaveBeenCalledWith(400);
         expect(next).not.toHaveBeenCalled();
@@ -115,9 +115,9 @@ describe('test suite: validate middleware-registration',()=>{
     it('returns 400 when login email is invalid', () => {
         req.body.email = 'invalid-email';
 
-        const validateLogin = validate(loginSchema);
+        const validateRegister = validate(registerSchema);
 
-        validateLogin(req, res, next);
+        validateRegister(req, res, next);
 
         expect(res.status).toHaveBeenCalledWith(400);
         expect(next).not.toHaveBeenCalled();
@@ -126,9 +126,9 @@ describe('test suite: validate middleware-registration',()=>{
     it('returns 400 when password is short', () => {
         req.body.password = '123';
 
-        const validateLogin = validate(loginSchema);
+        const validateRegister = validate(registerSchema);
 
-        validateLogin(req, res, next);
+        validateRegister(req, res, next);
 
         expect(res.status).toHaveBeenCalledWith(400);
         expect(next).not.toHaveBeenCalled();
@@ -137,9 +137,9 @@ describe('test suite: validate middleware-registration',()=>{
     it('returns 400 when name is missing', () => {
         delete req.body.name;
 
-        const validateLogin = validate(loginSchema);
+        const validateRegister = validate(registerSchema);
 
-        validateLogin(req, res, next);
+        validateRegister(req, res, next);
 
         expect(res.status).toHaveBeenCalledWith(400);
         expect(next).not.toHaveBeenCalled();

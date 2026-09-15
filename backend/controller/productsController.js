@@ -60,7 +60,7 @@ export const deleteProduct=asyncHandler(async(req,res,next)=>{
         throw error;
     }
     res.status(200).json({
-        message:'Product Removed successfully'
+        message:'Product Deleted successfully'
     });
 })
 

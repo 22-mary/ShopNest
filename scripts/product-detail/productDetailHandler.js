@@ -27,6 +27,27 @@ export function addToCartHandler(){
 
     } catch (error) {
         console.error('Add to cart failed',error);
+
+        if (error.message === 'Please log in to continue.') {
+            const errorMessage = document.querySelector(
+                `.js-add-to-cart-error-${productId}`
+            );
+
+            if (errorMessage) {
+                errorMessage.textContent =
+                    'Please log in first to add this product to your cart.';
+
+                errorMessage.classList.add('visible');
+            }
+            const redirectUrl = `product-detail.html?productId=${productId}`;
+
+
+            setTimeout(() => {
+                window.location.href =
+                    `login.html?redirect=${encodeURIComponent(redirectUrl)}`;
+            }, 2000);
+            return;
+        }
         
     }
 })

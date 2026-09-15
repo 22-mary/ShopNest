@@ -89,7 +89,7 @@ export function renderProductForm(product=null){
             <div class="form-group">
                 <label for="price">Price</label>
 
-                <input class="js-price" type="number" name="priceCents" placeholder="Enter Price of the product" required value="${product?.priceCents ?? ""}">
+                <input class="js-price" type="number" name="priceCents" placeholder="Enter price in Kenyan Shillings (KSh)" required value="${product?.priceCents ?? ""}">
 
                 <div class="form-error js-error-price"></div>
             </div>
@@ -97,7 +97,7 @@ export function renderProductForm(product=null){
             <div class="form-group">
                 <label for="product-image">Image URL</label>
 
-                <input class="js-image" type="text" placeholder="Enter Image URL" required value="${product?.image ?? ""}">
+                <input class="js-image" type="text" placeholder="Image URL (e.g. https://example.com/image.jpg)" required value="${product?.image ?? ""}">
 
                 <div class="form-error js-error-image"></div>
             </div>
@@ -125,7 +125,12 @@ export function renderProductForm(product=null){
            </div>
     
         </form>
-    `
+    `;
+    container.classList.add('show');
+    console.log('Opening product form');
+    console.log(container);
+    container.classList.add('show');
+    console.log(container.classList);
 }
 
 export function renderProductRow(product){

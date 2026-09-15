@@ -42,17 +42,11 @@ export function closeProductForm(){
     const container= document.querySelector('.js-add-product-container');
     if (!container) return;
 
+    container.classList.remove('show');
+
     container.innerHTML='';
 
-    const button=document.querySelector('.js-add-product-btn');
+const button=document.querySelector('.js-add-product-btn');
     if(!button) return;
     button.classList.remove('hide-button');
-
-    document.querySelector(".admin-container").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-
-    
-
 }

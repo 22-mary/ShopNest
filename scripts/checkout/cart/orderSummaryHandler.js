@@ -58,7 +58,7 @@ export async function handleUpdateQuantity(cartId,inputElement,saveLink){
     //Get the updated cart once
     const cart=await getCartAPI();
      // update totals
-    await renderPaymentSumary(cart);
+    await renderPaymentSummary(cart);
     await renderCheckoutHeader(cart);
   } catch (error) {
     // Roll back UI

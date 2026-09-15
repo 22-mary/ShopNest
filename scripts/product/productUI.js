@@ -90,7 +90,6 @@ export function renderProductsGridUI(products,searchTerm=''){
     
 
   });
-  //console.log(productsHTML);
   document.querySelector('.js-product-grid').innerHTML=productsHTML;
 
 }
