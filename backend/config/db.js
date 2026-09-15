@@ -5,7 +5,7 @@ const pool=mysql.createPool({
     host:'localhost',
     user:'root',
     password:'',
-    database:'amazon_clone',
+    database:process.env.DB_NAME,
     waitForConnections:true,
     connectionLimit:10
 })
