@@ -315,7 +315,33 @@ http://localhost:8000/api
 
 ## Screenshots
 
-Screenshots will be added as the project documentation is expanded.
+### Products
+
+![ShopNest Products](screenshots/product.png)
+
+### Product Details
+
+![ShopNest Product Details](screenshots/product-detail.png)
+
+### Checkout
+
+![ShopNest Checkout](screenshots/checkout.png)
+
+### Orders
+
+![ShopNest Orders](screenshots/order.png)
+
+### Order Tracking
+
+![ShopNest Tracking](screenshots/tracking.png)
+
+### Admin Dashboard
+
+![ShopNest Admin Dashboard](screenshots/admin-dashboard.png)
+
+### Admin Edit Product
+
+![ShopNest Admin Edit Product](screenshots/admin-edit-popup.png)
 
 ---
 
